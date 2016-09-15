@@ -6,9 +6,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using VehicleBuyScanner.Structure;
+using VehicleBuyScannerLib.Structure;
 
-namespace VehicleBuyScanner.Sources
+namespace VehicleBuyScannerLib.Sources
 {
     public class Otomoto : VehicleSource<HtmlNode>
     {

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VehicleBuyScannerLib.Sources;
 
-namespace VehicleBuyScanner
+namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,8 +23,7 @@ namespace VehicleBuyScanner
     {
         public MainWindow()
         {
-            InitializeComponent();
-            InitializeSources();
+            InitializeComponent(); InitializeSources();
         }
 
         private async void InitializeSources()

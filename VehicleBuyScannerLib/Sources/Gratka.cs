@@ -6,11 +6,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using VehicleBuyScanner.Structure;
+using VehicleBuyScannerLib.Structure;
 
-namespace VehicleBuyScanner.Sources
+namespace VehicleBuyScannerLib.Sources
 {
-    class Gratka : VehicleSource<HtmlNode>
+    public class Gratka : VehicleSource<HtmlNode>
     {
         string xpath = ".//li[contains(@class, 'moderacja')]";
         string idXPath = ".//div[@class='schowaj']";

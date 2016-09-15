@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VehicleBuyScanner.Structure
+namespace VehicleBuyScannerLib.Structure
 {
     abstract public class VehicleSource<T>
     {

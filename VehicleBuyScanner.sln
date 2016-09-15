@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleBuyScanner", "VehicleBuyScanner\VehicleBuyScanner.csproj", "{95D27333-5FFE-43FC-B529-BECC98577D01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleBuyScannerLib", "VehicleBuyScannerLib\VehicleBuyScannerLib.csproj", "{170FBFAE-0773-45EC-B705-D466CDF22F3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTestApp", "WpfApplication1\SimpleTestApp.csproj", "{49E279FD-0396-4110-8987-6A1DDA44E4F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{95D27333-5FFE-43FC-B529-BECC98577D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95D27333-5FFE-43FC-B529-BECC98577D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95D27333-5FFE-43FC-B529-BECC98577D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95D27333-5FFE-43FC-B529-BECC98577D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{170FBFAE-0773-45EC-B705-D466CDF22F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170FBFAE-0773-45EC-B705-D466CDF22F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170FBFAE-0773-45EC-B705-D466CDF22F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170FBFAE-0773-45EC-B705-D466CDF22F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49E279FD-0396-4110-8987-6A1DDA44E4F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49E279FD-0396-4110-8987-6A1DDA44E4F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49E279FD-0396-4110-8987-6A1DDA44E4F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49E279FD-0396-4110-8987-6A1DDA44E4F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
