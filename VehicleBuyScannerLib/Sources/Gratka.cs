@@ -10,7 +10,7 @@ using VehicleBuyScannerLib.Structure;
 
 namespace VehicleBuyScannerLib.Sources
 {
-    public class Gratka : VehicleSource<HtmlNode>
+    public class Gratka : VehicleSource
     {
         const string xpath = ".//li[contains(@class, 'moderacja')]";
         const string idXPath = ".//div[@class='schowaj']";

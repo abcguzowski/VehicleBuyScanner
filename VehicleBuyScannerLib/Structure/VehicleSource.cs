@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 
 namespace VehicleBuyScannerLib.Structure
 {
-    abstract public class VehicleSource<T>
+    abstract public class VehicleSource
     {
         protected string UrlAddress;
         protected string XPath;
+        protected bool XPathLeadToListRootElement;
 
-        public VehicleSource(string urlAddress, string xpath)
+        public VehicleSource(string urlAddress, string xpath, bool xpathLeadToListRootElement = false)
         {
             UrlAddress = urlAddress;
             XPath = xpath;
+            XPathLeadToListRootElement = xpathLeadToListRootElement;
         }
         public virtual async Task<List<Vehicle>> GetVehicles()
         {
@@ -29,10 +31,12 @@ namespace VehicleBuyScannerLib.Structure
             var siteSource = await RetrievePage();
 
             var vehicles = new List<Vehicle>();
-
-            foreach (var article in siteSource.DocumentNode.SelectNodes(XPath))
+            var elementsNodes = XPathLeadToListRootElement ? siteSource.DocumentNode.SelectSingleNode(XPath).ChildNodes : siteSource.DocumentNode.SelectNodes(XPath);
+            var i = 0;
+            foreach (var article in elementsNodes)
             {
                 vehicles.Add(FetchVehicle(article));
+                i++;
             }
 
             return vehicles;

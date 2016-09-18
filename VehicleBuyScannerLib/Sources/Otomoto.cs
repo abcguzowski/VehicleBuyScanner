@@ -10,7 +10,7 @@ using VehicleBuyScannerLib.Structure;
 
 namespace VehicleBuyScannerLib.Sources
 {
-    public class Otomoto : VehicleSource<HtmlNode>
+    public class Otomoto : VehicleSource
     {
         const string xpath = ".//article";
         const string imgXPath = ".//div/a[@data-ad-id]";
