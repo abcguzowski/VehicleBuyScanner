@@ -37,7 +37,12 @@ namespace WpfApplication1
 
             var sprzedajemy = new Sprzedajemy("https://sprzedajemy.pl/motoryzacja/motocykle-skutery-quady?inp_price%5Bfrom%5D=15000&inp_price%5Bto%5D=35000&inp_only_with_photos=1&inp_attribute_90%5Bfrom%5D=1500&inp_attribute_225=1130&inp_attribute_227=1136&sort=inp_srt_price_a&offset=0&items_per_page=60");
             var sprzedajemMatchedVehicles = await sprzedajemy.GetVehicles();
+
+            var olx = new Olx("http://www.olx.pl/motoryzacja/motocykle-skutery/chopper-cruiser/?search%5Bfilter_float_price%3Afrom%5D=15000&search%5Bfilter_float_price%3Ato%5D=35000&search%5Bfilter_float_enginesize%3Afrom%5D=1500&search%5Bfilter_enum_condition%5D%5B0%5D=notdamaged&search%5Bphotos%5D=1&search%5Border%5D=filter_float_price%3Aasc");
+            var olxMatchedVehicles = await olx.GetVehicles();
             
+
+
         }
     }
 }

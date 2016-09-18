@@ -46,10 +46,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Gratka.cs" />
+    <Compile Include="Sources\Olx.cs" />
     <Compile Include="Sources\Otomoto.cs" />
     <Compile Include="Sources\Sprzedajemy.cs" />
-    <Compile Include="Structure\Vehicle.cs" />
-    <Compile Include="Structure\VehicleSource.cs" />
+    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\VehicleSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
