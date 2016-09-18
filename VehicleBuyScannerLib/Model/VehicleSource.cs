@@ -1,13 +1,10 @@
 ﻿using HtmlAgilityPack;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace VehicleBuyScannerLib.Structure
+namespace VehicleBuyScannerLib.Model
 {
     abstract public class VehicleSource
     {
@@ -28,16 +25,19 @@ namespace VehicleBuyScannerLib.Structure
 
         protected virtual async Task<List<Vehicle>> ProcessSource()
         {
-            var siteSource = await RetrievePage();
+            //Add here multipages logic part {
 
+            var siteSource = await RetrievePage();
+            
             var vehicles = new List<Vehicle>();
             var elementsNodes = XPathLeadToListRootElement ? siteSource.DocumentNode.SelectSingleNode(XPath).ChildNodes : siteSource.DocumentNode.SelectNodes(XPath);
-            var i = 0;
+            
             foreach (var article in elementsNodes)
             {
-                vehicles.Add(FetchVehicle(article));
-                i++;
+                vehicles.Add(FetchVehicle(article));            
             }
+
+            //}
 
             return vehicles;
         }
@@ -57,5 +57,9 @@ namespace VehicleBuyScannerLib.Structure
         }
 
         protected virtual Vehicle FetchVehicle(HtmlNode sourceElement) { return new Vehicle(); }
+
+        //For now only first page will be read. Why? Because it should be enough.  
+        //If you would have 60+ results from EVERY portal than I think you should better think what you want...
+        //protected abstract int NumberOfPagesToRead();
     }
 }
