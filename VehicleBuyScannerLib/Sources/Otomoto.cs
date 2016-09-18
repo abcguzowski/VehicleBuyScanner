@@ -12,44 +12,16 @@ namespace VehicleBuyScannerLib.Sources
 {
     public class Otomoto : VehicleSource<HtmlNode>
     {
-        string xpath = ".//article";
-        string imgXPath = ".//div/a[@data-ad-id]";
-        string subtitleXPath = ".//h3[@class='offer-item__subtitle']";
-        string priceXPath = ".//span[@class='offer-price__number']";
-        string yearXPath = ".//ul[@class='offer-item__params']";
-        string locationXPath = ".//span[@class='icon-location']";
-        string engineCapacityXPath = ".//ul[@class='offer-item__params']";
+        const string xpath = ".//article";
+        const string imgXPath = ".//div/a[@data-ad-id]";
+        const string subtitleXPath = ".//h3[@class='offer-item__subtitle']";
+        const string priceXPath = ".//span[@class='offer-price__number']";
+        const string yearXPath = ".//ul[@class='offer-item__params']";
+        const string locationXPath = ".//span[@class='icon-location']";
+        const string engineCapacityXPath = ".//ul[@class='offer-item__params']";
 
-        public Otomoto(string urlAddress) : base(urlAddress)
+        public Otomoto(string urlAddress) : base(urlAddress, xpath)
         {
-        }
-
-        protected override async Task<List<Vehicle>> ProcessSource()
-        {
-            var siteSource = await RetrievePage();
-
-            var vehicles = new List<Vehicle>();
-            foreach (var article in siteSource.DocumentNode.SelectNodes(xpath))
-            {
-                vehicles.Add(FetchVehicle(article));
-            }
-
-            return vehicles;
-        }
-
-
-        private async Task<HtmlDocument> RetrievePage()
-        {
-            var client = new HttpClient();
-
-            var responseMessage = await client.GetAsync(UrlAddress);
-            string result = await responseMessage.Content.ReadAsStringAsync();
-            if (!responseMessage.IsSuccessStatusCode)
-                throw new FileNotFoundException("Unable to retrieve document");
-
-            var siteSource = new HtmlAgilityPack.HtmlDocument();
-            siteSource.LoadHtml(result);
-            return siteSource;
         }
 
         protected override Vehicle FetchVehicle(HtmlNode article) {

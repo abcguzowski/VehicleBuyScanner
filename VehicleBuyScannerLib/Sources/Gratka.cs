@@ -12,46 +12,20 @@ namespace VehicleBuyScannerLib.Sources
 {
     public class Gratka : VehicleSource<HtmlNode>
     {
-        string xpath = ".//li[contains(@class, 'moderacja')]";
-        string idXPath = ".//div[@class='schowaj']";
-        string imgXPath = ".//div/a/img";
-        string titleXPath = ".//div/h3/a";
-        string urlXPath = ".//div/h3/a";
-        string priceXPath = ".//div[@class='pasek']/strong";
-        string yearXPath = ".//div[@class='pasek']/ul/li[@title='Rok produkcji']/span";
-        string locationXPath = ".//p[@class='listaRegion']";
-        string engineCapacityXPath = ".//div[@class='pasek']/ul/li/span";
+        const string xpath = ".//li[contains(@class, 'moderacja')]";
+        const string idXPath = ".//div[@class='schowaj']";
+        const string imgXPath = ".//div/a/img";
+        const string titleXPath = ".//div/h3/a";
+        const string urlXPath = ".//div/h3/a";
+        const string priceXPath = ".//div[@class='pasek']/strong";
+        const string yearXPath = ".//div[@class='pasek']/ul/li[@title='Rok produkcji']/span";
+        const string locationXPath = ".//p[@class='listaRegion']";
+        const string engineCapacityXPath = ".//div[@class='pasek']/ul/li/span";
 
-        public Gratka(string urlAddress) : base(urlAddress)
+        public Gratka(string urlAddress) : base(urlAddress, xpath)
         {
         }
-
-        protected override async Task<List<Vehicle>> ProcessSource()
-        {
-            var siteSource = await RetrievePage();
-
-            var vehicles = new List<Vehicle>();
-
-            foreach (var article in siteSource.DocumentNode.SelectNodes(xpath))
-            {
-                vehicles.Add(FetchVehicle(article));
-            }
-
-            return vehicles;
-        }
-        private async Task<HtmlDocument> RetrievePage()
-        {
-            var client = new HttpClient();
-
-            var responseMessage = await client.GetAsync(UrlAddress);
-            string result = await responseMessage.Content.ReadAsStringAsync();
-            if (!responseMessage.IsSuccessStatusCode)
-                throw new FileNotFoundException("Unable to retrieve document");
-
-            var siteSource = new HtmlAgilityPack.HtmlDocument();
-            siteSource.LoadHtml(result);
-            return siteSource;
-        }
+        
         protected override Vehicle FetchVehicle(HtmlNode sourceElement)
         {
             var idNode = sourceElement.SelectSingleNode(idXPath);

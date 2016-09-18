@@ -18,6 +18,7 @@ namespace VehicleBuyScannerLib.Structure
         public string Location { get; private set; }
         public string EngineCapacity { get; private set; }
 
+        public Vehicle() { }
         public Vehicle(string id, string url, string imgUrl, string title, string subtitle, string price, string year, string location, string engineCapacity) {
             Id = id;
             VehicleUrl = url;
